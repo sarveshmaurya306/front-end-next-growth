@@ -11,6 +11,7 @@
   const card1 = document.getElementById("card1"),
     card2 = document.getElementById("card2"),
     card3 = document.getElementById("card3");
+  
 
   //execute on load
   document.addEventListener('DOMContentLoaded', function () {
@@ -26,27 +27,40 @@
 
   function onSliderInputChange(event) {
     const sliderValue = event?.target?.value || 0;
-    document.getElementById('selectedUser').innerText = sliderValue
+    document.getElementById('selectedUser').innerText = sliderValue;
+
     function clearClass() {
       card1.classList.remove("border", "border-primary");
+      card1.firstElementChild.classList.remove("bg-primary")
       card2.classList.remove("border", "border-primary");
+      card2.firstElementChild.classList.remove("bg-primary")
       card3.classList.remove("border", "border-primary");
+      card3.firstElementChild.classList.remove("bg-primary")
     }
 
     if (sliderValue >= 0 && sliderValue <= 10) {
+
       clearClass();
       card1.classList.add("border", "border-primary");
+      card1.firstElementChild.classList.add("bg-primary")
+
     } else if (sliderValue > 10 && sliderValue <= 20) {
+
       clearClass();
       card2.classList.add("border", "border-primary");
+      card2.firstElementChild.classList.add("bg-primary")
+
     } else {
+
       clearClass();
       card3.classList.add("border", "border-primary");
+      card3.firstElementChild.classList.add("bg-primary")
+
     }
   }
 
   function runOnScroll() {
-    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight-1){
+    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1){
       loadMoreImage();
     }
   }
