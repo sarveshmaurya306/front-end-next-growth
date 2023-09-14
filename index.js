@@ -14,7 +14,7 @@
 
   //execute on load
   document.addEventListener('DOMContentLoaded', function () {
-    console.log('hello, my name is sarvesh, I have made this project to showcase my front-end skills, also this app is auto deployable using firebase ci');
+    console.log('hello, my name is sarvesh, I have made this project to showcase my front-end skills, also this app is enabled with ci/cd using gitlab ci/cd pipelines');
     onSliderInputChange();
     loadMoreImage();
   }, false);
