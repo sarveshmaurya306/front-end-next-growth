@@ -1,5 +1,10 @@
 (function () {
   "use strict";
+  console.log(`hello, 
+    my name is sarvesh,
+    I have made this project to showcase my front-end skills,
+    also this app is auto deployable using firebase ci`
+  );
   // variable 
 
   document.getElementById("buttonEvent1").addEventListener('click', handleButtonClick);
@@ -53,7 +58,6 @@
 
   // normal functions
   function loadMoreImage() {
-    console.log('load image called');
 
     let defaultLoad = 8;
     let container= document.getElementById('imgGalery');
@@ -82,7 +86,6 @@
 
     // hide the loader after getting all result
     Promise.all(promises).then((res)=>{
-      console.log('all resolved', res);
       loader.classList.add('d-none');
       loader.classList.remove('d-flex');
     }).catch((err)=>{
