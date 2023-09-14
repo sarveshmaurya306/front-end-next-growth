@@ -1,10 +1,5 @@
 (function () {
   "use strict";
-  console.log(`hello, 
-    my name is sarvesh,
-    I have made this project to showcase my front-end skills,
-    also this app is auto deployable using firebase ci`
-  );
   // variable 
 
   document.getElementById("buttonEvent1").addEventListener('click', handleButtonClick);
@@ -19,6 +14,7 @@
 
   //execute on load
   document.addEventListener('DOMContentLoaded', function () {
+    console.log('hello, my name is sarvesh, I have made this project to showcase my front-end skills, also this app is auto deployable using firebase ci');
     onSliderInputChange();
     loadMoreImage();
   }, false);
