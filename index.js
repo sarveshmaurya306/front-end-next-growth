@@ -32,6 +32,7 @@
   //execute on load
   document.addEventListener('DOMContentLoaded', function () {
     console.log('hello, my name is sarvesh, I have made this project to showcase my front-end skills, also this app is enabled with ci/cd using gitlab ci/cd pipelines');
+    console.log('youTube link: https://youtu.be/ZObbAqwrQx4');
     onSliderInputChange(); 
     throttledSafeLoadMoreImage(loadMoreImage, 2000);
   }, false);
@@ -75,7 +76,7 @@
     }
   }
 
-  
+
   function runOnScroll() {
     if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1){
       throttledSafeLoadMoreImage(loadMoreImage, 2000);
@@ -87,7 +88,7 @@
   //loadMoreImage getting called multiple times if user is not waiting, and start scrolling up-down again
   function loadMoreImage() {
     console.log('loadMoreImageCalled');
-    let defaultLoad = 4;
+    let defaultLoad = 8;
     let container= document.getElementById('imgGalery');
     const loader= document.getElementById('loader');
 
