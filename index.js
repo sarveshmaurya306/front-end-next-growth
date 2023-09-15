@@ -86,7 +86,7 @@
   //loadMoreImage getting called multiple times if user is not waiting, and start scrolling up-down again
   function loadMoreImage() {
     console.log('loadMoreImageCalled');
-    let defaultLoad = 8;
+    let defaultLoad = 4;
     let container= document.getElementById('imgGalery');
     const loader= document.getElementById('loader');
 
