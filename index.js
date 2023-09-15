@@ -1,7 +1,21 @@
 (function () {
   "use strict";
-  // variable 
+  // helper functions
+  function preventThrottel() {
+    let isThrottled = false;
+  
+    return function (callback, delay) {
+        if (!isThrottled) {
+            isThrottled = true;
+            callback();
+            setTimeout(() => {
+                isThrottled = false;
+            }, delay);
+        }
+    }
+  }
 
+  // variable 
   document.getElementById("buttonEvent1").addEventListener('click', handleButtonClick);
   document.getElementById("buttonEvent2").addEventListener('click', handleButtonClick);
   document.getElementById("buttonEvent3").addEventListener('click', handleButtonClick);
@@ -12,15 +26,17 @@
     card2 = document.getElementById("card2"),
     card3 = document.getElementById("card3");
   
+  // Initialization of Throttle Function
+  const throttledSafeLoadMoreImage= preventThrottel();
 
   //execute on load
   document.addEventListener('DOMContentLoaded', function () {
     console.log('hello, my name is sarvesh, I have made this project to showcase my front-end skills, also this app is enabled with ci/cd using gitlab ci/cd pipelines');
-    onSliderInputChange();
-    loadMoreImage();
+    onSliderInputChange(); 
+    throttledSafeLoadMoreImage(loadMoreImage, 2000);
   }, false);
 
-  // event functions
+  // event basedfunctions
   function handleButtonClick(event) {
     document.getElementById('selectedPriceValue').setAttribute('value', event.target.value)
   }
@@ -61,14 +77,15 @@
 
   function runOnScroll() {
     if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1){
-      loadMoreImage();
+      throttledSafeLoadMoreImage(loadMoreImage, 2000);
     }
   }
   
 
   // normal functions
+  //loadMoreImage getting called multiple times if user is not waiting, and start scrolling up-down again
   function loadMoreImage() {
-
+    console.log('loadMoreImageCalled');
     let defaultLoad = 8;
     let container= document.getElementById('imgGalery');
     const loader= document.getElementById('loader');
